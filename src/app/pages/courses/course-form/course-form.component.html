@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<div mat-dialog-content>
+  <form [formGroup]="courseForm">
+    <div class="form-group">
+      <mat-form-field class="col-12">
+        <input matInput placeholder="Nombre del curso" formControlName="name">
+        <mat-error *ngIf="courseForm.get('name')?.invalid">*Campo obligatorio</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="col-12">
+        <input matInput placeholder="Profesor" formControlName="teacher">
+        <mat-error *ngIf="courseForm.get('teacher')?.invalid">*Campo obligatorio</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="col-12">
+        <input matInput type="number" placeholder="Cantidad de clases" formControlName="number_classes">
+        <mat-error *ngIf="courseForm.get('number_classes')?.invalid">*Campo obligatorio</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="courseForm.value" [disabled]="courseForm.invalid">Guardar</button>
+</div>

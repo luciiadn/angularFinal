@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Seleccionar Curso</h1>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Curso</mat-label>
+    <mat-select [(ngModel)]="selectedCourse">
+      <mat-option *ngFor="let course of courses" [value]="course">{{course.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="selectedCourse" cdkFocusInitial>Guardar</button>
+</mat-dialog-actions>

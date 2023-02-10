@@ -1,0 +1,9 @@
+main{
+    
+    height: 700px;
+    padding-top: 30px;
+}
+
+.card{
+    background-color: lightgray;
+}

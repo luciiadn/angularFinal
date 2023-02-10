@@ -1,0 +1,26 @@
+<nav class="sidenav shadow-right sidenav-light">
+  <div class="sidenav-menu">
+    <div class="nav accordion" id="accordionSidenav">
+      <a class="nav-link" routerLink="/app/inicio">
+        <div class="nav-link-icon"><i data-feather="home"></i></div>
+        Menú
+      </a>
+      <a class="nav-link" routerLink="/app/alumnos">
+        <div class="nav-link-icon"><i data-feather="list"></i></div>
+        Alumnos
+      </a>
+      <a class="nav-link" routerLink="/app/cursos">
+        <div class="nav-link-icon"><i data-feather="list"></i></div>
+        Cursos
+      </a>
+      <a class="nav-link" routerLink="/app/inscripciones" [appAccess]="['Administrador']">
+        <div class="nav-link-icon"><i data-feather="list"></i></div>
+        Inscriptos
+      </a>
+      <a class="nav-link" routerLink="/app/usuarios" [appAccess]="['Administrador']">
+        <div class="nav-link-icon"><i data-feather="list"></i></div>
+        Administrador
+      </a>
+    </div>
+  </div>
+</nav>

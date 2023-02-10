@@ -1,0 +1,66 @@
+<main>
+  <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
+    <div class="container-xl px-4">
+      <div class="page-header-content">
+        <div class="row align-items-center justify-content-between pt-3">
+          <div class="col-auto mb-3">
+            <h1 class="page-header-title">
+              <div class="page-header-icon"><i data-feather="list"></i></div>
+              Cursos activos
+            </h1>
+          </div>
+          <div class="col-12 col-xl-auto mb-3">
+            <a class="btn btn-sm btn-light text-primary" (click)="openDialogCourseForm()">
+              <i class="me-1" data-feather="user-plus"></i>
+              Añadir Curso
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container-xl px-4 mt-2">
+    <mat-form-field>
+      <input matInput [(ngModel)]="searchText" (ngModelChange)="search$.next($event)" placeholder="Filtrar cursos" />
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="teacher">
+        <th mat-header-cell *matHeaderCellDef>Profesor</th>
+        <td mat-cell *matCellDef="let element">{{ element.teacher }}</td>
+      </ng-container>
+      <ng-container matColumnDef="number_classes">
+        <th mat-header-cell *matHeaderCellDef>Clases</th>
+        <td mat-cell *matCellDef="let element">{{ element.number_classes }}</td>
+      </ng-container>
+      <ng-container matColumnDef="class_duration">
+        <th mat-header-cell *matHeaderCellDef>Duración</th>
+        <td mat-cell *matCellDef="let element">{{ element.class_duration }}</td>
+      </ng-container>
+      <ng-container matColumnDef="count_inscriptions">
+        <th mat-header-cell *matHeaderCellDef>Inscriptos</th>
+        <td mat-cell *matCellDef="let element">{{ element.count_inscriptions }}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="openDialogCourseForm(element.id)" class="btn btn-primary btn-sm me-2">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button (click)="deleteCourse(element.id)" class="btn btn-danger btn-sm">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</main>
