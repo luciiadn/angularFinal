@@ -1,17 +1,13 @@
-.caja{
-    background-image: url(/src/assets/assets/img/backgrounds/backgroundlogin.jpg);
-    background-size: cover;
-    background-repeat: repeat;
-}
-
 
  main{
     
     height: 700px;
-    padding-top: 30px;
-   
-}
-
-.card{
+    width: 100%;
     background-color: lightgray;
+  
+}
+   
+
+.row {
+    padding-top: 50px;
 }
