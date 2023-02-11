@@ -18,8 +18,8 @@ export class CoursesService {
 
   getAll(): Observable<Course[]>{
     return forkJoin([
-      this.http.get<Course[]>(base_url + '/courses'),
-      this.http.get<StudentInscription[]>(base_url_2 + '/inscriptions')
+      this.http.get<Course[]>(base_url),
+      this.http.get<StudentInscription[]>(base_url_2)
     ]).pipe(
       map( ([courses, inscriptions]) => {
 
@@ -33,19 +33,19 @@ export class CoursesService {
   }
 
   getById(id: number): Observable<Course>{
-    return this.http.get<Course>(base_url + '/courses/' + id);
+    return this.http.get<Course>(base_url + id);
   }
 
   create(course: Course): Observable<Course>{
-    return this.http.post<Course>(base_url + '/courses', course);
+    return this.http.post<Course>(base_url, course);
   }
 
   update(id: number, course: Course): Observable<Course>{
-    return this.http.put<Course>(base_url + '/courses/' + id, course);
+    return this.http.put<Course>(base_url + id, course);
   }
 
   delete(id: number): Observable<Course>{
-    return this.http.delete<Course>(base_url + '/courses/' + id);
+    return this.http.delete<Course>(base_url+ id);
   }
 
 }

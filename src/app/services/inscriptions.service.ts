@@ -4,7 +4,7 @@ import {
   Inscriptions,
   Student,
 } from './../interfaces/student.interface';
-import { filter, forkJoin, map, Observable } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -20,9 +20,9 @@ export class InscriptionsService {
 
   getAllStudentsInscriptions(): Observable<Inscriptions[]> {
     return forkJoin([
-      this.http.get<Inscriptions[]>(base_url_2 + '/inscriptions'),
-      this.http.get<Student[]>(base_url_2 + '/students'),
-      this.http.get<Course[]>(base_url_1 + '/courses'),
+      this.http.get<Inscriptions[]>(base_url_2 ),
+      this.http.get<Student[]>(base_url_2 ),
+      this.http.get<Course[]>(base_url_1 ),
     ]).pipe(
       map(([inscriptions, students, courses]) => {
         return inscriptions.map((inscription) => {
@@ -41,8 +41,8 @@ export class InscriptionsService {
     student_id: number
   ): Observable<StudentInscription[]> {
     return forkJoin([
-      this.http.get<StudentInscription[]>(base_url_2 + '/inscriptions'),
-      this.http.get<Course[]>(base_url_1 + '/courses'),
+      this.http.get<StudentInscription[]>(base_url_2 ),
+      this.http.get<Course[]>(base_url_1 ),
     ]).pipe(
       map(([inscriptions, courses]) => {
         return inscriptions
@@ -59,7 +59,7 @@ export class InscriptionsService {
     course_id: number
   ): Observable<StudentInscription[]> {
     return this.http
-      .get<StudentInscription[]>(base_url_2 + '/inscriptions')
+      .get<StudentInscription[]>(base_url_2 )
       .pipe(
         map((inscriptions) =>
           inscriptions.filter(
@@ -70,13 +70,13 @@ export class InscriptionsService {
   }
 
   addInscription(course_id: number, student_id: number): Observable<any> {
-    return this.http.post(base_url_2 + '/inscriptions', {
+    return this.http.post(base_url_2, {
       course_id,
       student_id,
     });
   }
 
   delete(id: number): Observable<any> {
-    return this.http.delete(base_url_2 + '/inscriptions/' + id);
+    return this.http.delete(base_url_2 + id);
   }
 }

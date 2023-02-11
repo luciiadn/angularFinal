@@ -15,23 +15,23 @@ export class StudentsService {
 
 
   getAll(): Observable<Student[]> {
-    return this.http.get<Student[]>(base_url + '/students');
+    return this.http.get<Student[]>(base_url);
   }
 
   getById(id: number): Observable<Student>{
-    return this.http.get<Student>(`${base_url}/students/${id}`);
+    return this.http.get<Student>(`${base_url}/api/${id}`);
   }
 
   create(formData: Student): Observable<Student>{
-    return this.http.post<Student>(base_url + '/students', formData);
+    return this.http.post<Student>(base_url, formData);
   }
 
   update(id: number, formData: Student): Observable<Student>{
-    return this.http.put<Student>(base_url + '/students/' + id, formData)
+    return this.http.put<Student>(base_url + id, formData)
   }
 
   delete(id: number): Observable<Student>{
-    return this.http.delete<Student>(base_url + '/students/' + id);
+    return this.http.delete<Student>(base_url + id);
   }
 
 
