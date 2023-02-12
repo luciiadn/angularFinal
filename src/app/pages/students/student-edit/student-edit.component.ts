@@ -28,8 +28,8 @@ export class StudentEditComponent implements OnInit {
   get last_name() {
     return this.studentForm.get('last_name');
   }
-  get document_number() {
-    return this.studentForm.get('document_number');
+  get house() {
+    return this.studentForm.get('house');
   }
 
 

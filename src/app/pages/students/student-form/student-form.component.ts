@@ -11,12 +11,12 @@ export class StudentFormComponent {
   studentForm = this.fb.group({
     first_name: ['', [Validators.required, Validators.minLength(3)]],
     last_name: ['', [Validators.required, Validators.minLength(3)]],
-    document_number: [, [Validators.required]]
+    house: [, [Validators.required]]
   });
 
   get first_name() { return this.studentForm.get('first_name') }
   get last_name() { return this.studentForm.get('last_name') }
-  get document_number() { return this.studentForm.get('document_number') }
+  get house() { return this.studentForm.get('house') }
 
   constructor(
     private fb: FormBuilder,

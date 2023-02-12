@@ -14,7 +14,7 @@ export class StudentsIndexComponent implements OnInit {
 
   public loading: boolean = true;
   public students: Student[] = [];
-  public displayedColumns: string[] = ['id', 'first_name', 'last_name', 'document_number',  'actions'];
+  public displayedColumns: string[] = ['id', 'first_name', 'last_name', 'house',  'actions'];
   public dataSource = new MatTableDataSource<Student>();
 
   constructor(
