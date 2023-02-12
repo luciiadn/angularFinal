@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -12,7 +11,6 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     SidebarComponent,
     ToolbarComponent,
-    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +20,6 @@ import { FooterComponent } from './footer/footer.component';
   exports: [
     SidebarComponent,
     ToolbarComponent,
-    FooterComponent
   ]
 })
 export class LayoutModule { }

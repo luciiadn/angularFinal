@@ -16,12 +16,6 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'usuarios',
-        canActivate: [RoleGuard],
-        loadChildren: () =>
-          import('./users/users.module').then((m) => m.UsersModule),
-      },
-      {
         path: 'inscripciones',
         canActivate: [RoleGuard],
         loadChildren: () =>
